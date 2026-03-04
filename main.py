@@ -39,6 +39,16 @@ if client_name.isalpha():
 
         print(f'total {total}')
 
+    # se necesita ve el nombre del cliente, productos con sus cantidades y precio unitario, subtotal y total
+
+
+        print(f'''
+                | Product... | Precio unit... | cant... | total |
+                -------------------------------------------------
+            ''')
+
+
+
     except ValueError:
         print('Los campos de cantidades deben ser valores numéricos')
 else:
