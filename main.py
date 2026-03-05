@@ -36,9 +36,18 @@ if client_name.isalpha():
         for product in products:
             subtotal+=product['product_total']
 
+        
         total=subtotal
 
-    # Interfaz de los datos de la venta
+        membership=input('¿el cliente tiene membresia?, escribe "si" para confirmar o presiona enter para descartar => ')
+
+        discount:str|float='no aplica'
+
+        if membership.lower()=='si':
+            discount=0.1
+            total=subtotal-(subtotal*discount)   
+
+        # Interfaz de los datos de la venta
         print(f'Cliente: {client_name}')
         print('-'*60)
         print(f'''| Product... | cant... |  Precio unit... |     total    |''')
@@ -51,7 +60,9 @@ if client_name.isalpha():
             subtotal: ${subtotal} 
             ----------------------    
             total general: ${total} 
-              ''')
+              ''')      
+
+
 
     except ValueError:
         print('Los campos de cantidades deben ser valores numéricos')
