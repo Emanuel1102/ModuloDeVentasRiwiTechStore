@@ -8,8 +8,8 @@ if client_name.isalpha():
 
         for current_product in range(products_quantity):
             product_name=input(f'Ingresa el producto #{current_product+1} (nombre del producto) => ')
-            unitary_price=int(input('Precio unitario del producto => $'))
-            product_quantity=int(input('Cantidad => '))
+            unitary_price=int(input(f'Precio unitario de "{product_name}" => $'))
+            product_quantity=int(input(f'Cantidad de "{product_name}" => '))
             total_product=unitary_price*product_quantity
 
 
@@ -39,30 +39,32 @@ if client_name.isalpha():
         
         total=subtotal
 
-        membership=input('¿el cliente tiene membresia?, escribe "si" para confirmar o presiona enter para descartar => ')
+        membership=input('¿el cliente tiene membresia?, escribe "s" (si) y luego presiona enter para confirmar, o presiona solo enter para descartar => ')
 
         discount:str|float='no aplica'
 
-        if membership.lower()=='si':
+        if membership.lower()=='s':
             discount=0.1
             total=subtotal-(subtotal*discount)   
 
         # Interfaz de los datos de la venta
-        print(f'Cliente: {client_name}')
-        print('-'*60)
+        print(f'| {'-'*60} |')
+        print(f'| Cliente: {client_name}')
+        print(f'| {'_'*60} |')
         print(f'''| Product... | cant... |  Precio unit... |     total    |''')
-        print('-'*60)
+        print(f'| {'-'*60} |')
         for product in products:
             print(f'| {product['product_name']}     |    {product['product_quantity']}    |    ${product['unitary_price']}        |    ${product['product_total']}    |')
-            print('-'*60)
-
+            print(f'| {'_'*60} |')
         print(f'''
-            subtotal: ${subtotal} 
-            ----------------------    
-            total general: ${total} 
+            |--------------------------| 
+            | subtotal: ${subtotal}    |
+            | -------------------------|
+            | Descuento: {f'${int(subtotal*discount)}' if membership else discount} |
+            | -------------------------|
+            | total general: ${int(total)}  |
+            |__________________________|
               ''')      
-
-
 
     except ValueError:
         print('Los campos de cantidades deben ser valores numéricos')
