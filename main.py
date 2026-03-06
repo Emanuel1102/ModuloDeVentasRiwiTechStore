@@ -47,22 +47,6 @@ if client_name.isalpha():
             discount=0.1
             total=subtotal-(subtotal*discount)   
 
-        # Interfaz de los datos de la venta
-        print(f'Cliente: {client_name}')
-        print('-'*60)
-        print(f'''| Product... | cant... |  Precio unit... |     total    |''')
-        print('-'*60)
-        for product in products:
-            print(f'| {product['product_name']}     |    {product['product_quantity']}    |    ${product['unitary_price']}        |    ${product['product_total']}    |')
-            print('-'*60)
-
-        print(f'''
-            subtotal: ${subtotal} 
-            ----------------------    
-            total general: ${total} 
-              ''')      
-
-
 
     except ValueError:
         print('Los campos de cantidades deben ser valores numéricos')
